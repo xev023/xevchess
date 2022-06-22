@@ -9,6 +9,9 @@ export default {
     setGameInfo(state,game){
         state.game = game
     },
+    setLose(state){
+        state.lose = true
+    },
     toggleTurn(state){
         state.yourTurn = !state.yourTurn
     },
@@ -1281,6 +1284,8 @@ export default {
         store.win= false,
         store.lose= false,
         store.draw= false,
-        store.jaque = false
+        store.jaque = false,
+        store.time = 0,
+        store.otherTime = 0
     }
 }

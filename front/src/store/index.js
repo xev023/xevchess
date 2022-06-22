@@ -4,7 +4,7 @@ import * as actions from './actions'
 import mutations from './mutations'
 const state = {
     logged: false,
-    username: '',
+    username: 'Guest',
     inGame: false,
     playerColour: '',
     yourTurn: false,
@@ -32,7 +32,8 @@ const state = {
     draw: false,
     jaque: false,
     time: 0,
-    otherTime: 0
+    otherTime: 0,
+    avatar: '/assets/defaultAvatar.png'
 }
 export default createStore({
 state,

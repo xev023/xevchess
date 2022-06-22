@@ -96,10 +96,12 @@ export const sendCoronation = (state,piece) =>{
     }
 }
 export const inJaque = () =>{
-    console.log('sending jaque',store.state.doingJaque)
     socket.emit('inJaque')
 }
 export const checkDraw = () =>{
-    console.log('sending draw',store.state.doingJaque)
     socket.emit('checkDraw')
+}
+export const timeOut = ()=>{
+    socket.emit('youWon')
+    store.commit('setLose')
 }

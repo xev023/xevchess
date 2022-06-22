@@ -24,8 +24,8 @@
             <div class="buttonWrapper" v-else>
                 <button @click="()=>{initGame(30),queue = true}">30 min</button>  
                 <button  @click="()=>{initGame(10),queue = true}">10 min</button>  
-                <button  @click="()=>{initGame(10),queue = true}">5 min</button>  
-                <button  @click="()=>{initGame(5),queue = true}">3 min</button>  
+                <button  @click="()=>{initGame(5),queue = true}">5 min</button>  
+                <button  @click="()=>{initGame(3),queue = true}">3 min</button>  
             </div>
         </Transition>
     </header>

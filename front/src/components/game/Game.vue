@@ -3,7 +3,9 @@ import Board from './Board.vue'
 import Preloader from './Preloader.vue'
 import Coronation from './Coronation.vue'
 import PostGame from './PostGame.vue'
-// import Time from './Time.vue'
+import Timer from './Timer.vue'
+import PlayerTag from './PlayerTag.vue'
+import Chat from './Chat.vue'
 import {onMounted} from 'vue'
 import {useStore} from 'vuex'
 const store = useStore()
@@ -15,19 +17,22 @@ onMounted(()=>{
 <template>
 <div class="container">
     <div v-if="!store.state.queue" class="gameWrapper">
-        <!-- <div  class="otherChrono">
-            <Time :time="store.state.time"></Time>
-        </div> -->
+        <div class="infoWrapper">        
+            <Timer :mine=false :time="store.state.otherTime"></Timer>
+            <PlayerTag></PlayerTag>
+        </div>
         <div class="board">
             <Board></Board>
         </div>
-        <!-- <div class="myChrono">
-            <Time :time="store.state.otherTime"></Time>
-        </div> -->
+        <div class="infoWrapper">
+            <PlayerTag></PlayerTag>
+            <Timer :mine=true :time="store.state.time"></Timer>
+        </div>
     </div>
-    <Preloader v-else color="#00ADB5" scale="0.6"/>
+    <Preloader v-else color="#5173c3" scale="0.6"/>
     <Coronation v-if="store.state.coronation"></Coronation>
     <PostGame v-if="store.state.lose||store.state.win||store.state.draw"></PostGame>
+    <Chat></Chat>
 </div>
 </template>
 <style scoped>
@@ -41,5 +46,18 @@ onMounted(()=>{
     .board{
         width: 700px;
         height: 700px;
+    }
+    .gameWrapper{
+        width: 700px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .infoWrapper{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
     }
 </style>
