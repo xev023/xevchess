@@ -6,8 +6,7 @@ export function checkJaque(store,cord){
               
             }
             if(cord.y+1<=7&&store.board[cord.x-1][cord.y+1].propiety==='other'&&store.board[cord.x-1][cord.y+1].piece.name==='king'){
-                store.doingJaque = true
-               
+                store.doingJaque = true  
             }
         break
         case 'horse':

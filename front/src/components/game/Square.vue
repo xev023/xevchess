@@ -33,7 +33,7 @@
         }else{
             return 'enemy'
         }
-    }) 
+    })
     function handleClick(){
         if(store.state.yourTurn){
             if(pieceSpread.value.name!=='' && props.propiety==='mine'){

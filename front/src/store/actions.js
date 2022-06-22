@@ -1,7 +1,6 @@
 import store from "."
 import { useSocketIO } from "../socket.io" 
-const presocket = useSocketIO()
-const socket = presocket.socket
+const socket = useSocketIO().socket
 socket.on('joinMe',(game)=>{
     let colour = game.me.colour==='white'?'black':'white'
     store.commit('setPlayerColour',colour)
@@ -102,6 +101,5 @@ export const inJaque = () =>{
 }
 export const checkDraw = () =>{
     console.log('sending draw',store.state.doingJaque)
-
     socket.emit('checkDraw')
 }
