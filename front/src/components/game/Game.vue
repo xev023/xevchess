@@ -32,7 +32,7 @@ onMounted(()=>{
     <Preloader v-else color="#5173c3" scale="0.6"/>
     <Coronation v-if="store.state.coronation"></Coronation>
     <PostGame v-if="store.state.lose||store.state.win||store.state.draw"></PostGame>
-    <Chat></Chat>
+    <Chat v-if="!store.state.queue" :messages="store.state.messages"></Chat>
 </div>
 </template>
 <style scoped>
@@ -40,7 +40,7 @@ onMounted(()=>{
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
     }
     .board{

@@ -33,7 +33,8 @@ const state = {
     jaque: false,
     time: 0,
     otherTime: 0,
-    avatar: '/assets/defaultAvatar.png'
+    avatar: '/assets/defaultAvatar.png',
+    messages: []
 }
 export default createStore({
 state,

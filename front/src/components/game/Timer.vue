@@ -13,10 +13,10 @@ onMounted(()=>{
     min.value = props.time
 })
 const secParse = computed(()=>{
-    return sec.value<9?`0${sec.value}`:sec.value
+    return sec.value<10?`0${sec.value}`:sec.value
 })
 const minParse = computed(()=>{
-    return min.value<9?`0${min.value}`:min.value
+    return min.value<10?`0${min.value}`:min.value
 })
 const interval = setInterval(()=>{
     if(props.mine && store.state.yourTurn){

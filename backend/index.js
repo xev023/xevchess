@@ -206,7 +206,11 @@ io.on("connection", (socket) => {
                     })
                 break
             }
-        })
+    })
+    socket.on('sendMessage',(message)=>{
+        const [, second] = socket.rooms;
+        socket.to(second).emit('sendMessage',message)
+    })
 })
 // app.use(express.static('./dist'))
 // app.get('*', (req, res) => {

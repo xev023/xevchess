@@ -1286,6 +1286,10 @@ export default {
         store.draw= false,
         store.jaque = false,
         store.time = 0,
-        store.otherTime = 0
+        store.otherTime = 0,
+        store.messages = []
+    },
+    newMessage(state,message){
+        state.messages.push(message)
     }
 }

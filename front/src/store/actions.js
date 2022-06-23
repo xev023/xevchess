@@ -62,6 +62,9 @@ socket.on('checkDraw',()=>{
 socket.on('draw',()=>{
     store.commit('setDraw')
 })
+socket.on('sendMessage',(message)=>{
+    store.commit('newMessage',message)
+})
 export const queue = () => {
     socket.emit('queue',store.state.username,store.state.time)
 }
@@ -104,4 +107,11 @@ export const checkDraw = () =>{
 export const timeOut = ()=>{
     socket.emit('youWon')
     store.commit('setLose')
+}
+export const sendMessage = (state,message) => {
+    socket.emit('sendMessage',message)
+}
+export const acceptDraw = () =>{
+    store.commit('setDraw')
+    socket.emit('draw')
 }
