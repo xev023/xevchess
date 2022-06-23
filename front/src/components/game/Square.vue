@@ -81,6 +81,9 @@
                         }
                         if(store.state.board[store.state.selected.x][store.state.selected.y].piece.name==='pawn'&&props.cord.x===0) {
                             store.commit('setCoronation',props.cord)
+                            if(store.getters.piecesCount === 2){
+                                store.dispatch('acceptDraw')
+                            }
                         }else{
                             store.commit('toggleTurn')   
                             store.dispatch('sendMovement',props.cord)
@@ -98,6 +101,10 @@
                             }
                             store.commit('removeEnemyMovements')
                             store.commit('removeMovements') 
+                            console.log(store.getters.piecesCount)
+                            if(store.getters.piecesCount === 2){
+                                store.dispatch('acceptDraw')
+                            }
                         }          
                     }
                 }

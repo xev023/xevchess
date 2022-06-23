@@ -1,4 +1,5 @@
 import { checkIllegal,checkJaque } from "./auxFunctions"
+import { socket } from "../socket.io"
 export default {
     loggedIn(state) {
       state.logged = true
