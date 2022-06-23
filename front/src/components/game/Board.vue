@@ -20,11 +20,17 @@
     }
 </script>
 <template>
-    <div v-for="(x,xIndex) in store.state.board" class="boardX">
-        <Square v-for="(y,yIndex) in x" :style="radius(xIndex,yIndex)" class="boardY" :propiety="y.propiety" :state="y.state" :piece="y.piece" :cord="{x:xIndex,y:yIndex}"/> 
+    <div class="board">
+        <div v-for="(x,xIndex) in store.state.board" class="boardX">
+            <Square v-for="(y,yIndex) in x" :style="radius(xIndex,yIndex)" class="boardY" :propiety="y.propiety" :state="y.state" :piece="y.piece" :cord="{x:xIndex,y:yIndex}"/> 
+        </div>
     </div>
 </template>
 <style scoped>
+    .board{
+        width: 700px;
+        height: 700px;
+    }
     .boardX{
         display: flex;
         height: 12.5%;

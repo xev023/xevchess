@@ -6,6 +6,7 @@ import PostGame from './PostGame.vue'
 import Timer from './Timer.vue'
 import PlayerTag from './PlayerTag.vue'
 import Chat from './Chat.vue'
+import History from './History.vue'
 import {onMounted} from 'vue'
 import {useStore} from 'vuex'
 const store = useStore()
@@ -16,14 +17,13 @@ onMounted(()=>{
 </script>
 <template>
 <div class="container">
+    <History v-if="!store.state.queue"></History>
     <div v-if="!store.state.queue" class="gameWrapper">
         <div class="infoWrapper">        
             <Timer :mine=false :time="store.state.otherTime"></Timer>
             <PlayerTag></PlayerTag>
         </div>
-        <div class="board">
-            <Board></Board>
-        </div>
+        <Board></Board>
         <div class="infoWrapper">
             <PlayerTag></PlayerTag>
             <Timer :mine=true :time="store.state.time"></Timer>
@@ -43,10 +43,7 @@ onMounted(()=>{
         justify-content: space-around;
         align-items: center;
     }
-    .board{
-        width: 700px;
-        height: 700px;
-    }
+
     .gameWrapper{
         width: 700px;
         height: 100%;

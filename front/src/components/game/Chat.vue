@@ -128,6 +128,7 @@ watch(props.messages,()=>{
         border-radius: 3px;
         max-width:270px;
         word-wrap: break-word;
+        text-align: center;
     }
     .myMessage{
         background-color: white;
@@ -144,7 +145,10 @@ watch(props.messages,()=>{
     }
     .drawIcons{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+    }
+    .drawIcons>i{
+        font-size: 1.5rem;
     }
     .drawIcons > i:hover{
         color: red;

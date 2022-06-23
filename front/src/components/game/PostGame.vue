@@ -8,7 +8,7 @@ const text = computed(()=>{
     if(store.state.win){
         return 'You have won!'
     }else if(store.state.draw){
-        return 'It was a tie!'
+        return 'It was a draw!'
     }else{
         return 'You have lost!'
     }
@@ -27,8 +27,8 @@ function rematch(){
 </template>
 <style scoped>
     .postGame{
-        width: 700px;
-        height: 700px;
+        width: 100%;
+        height: 100%;
         position: absolute;
         opacity: 0.7;
         background-color: black;
